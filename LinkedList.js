@@ -5,8 +5,7 @@ class LinkedList {
         this.head = null;
     }
 
-    push(val) {
-        const n = node(val, null);
-        this.head = n;
+    addFirst(v) {
+        this.head = node(v, this.head);
     }
 }
