@@ -10,7 +10,9 @@ class LinkedList {
     }
 
     deleteFirst() {
+        const { val } = this.head; // const val = this.head.val
         this.head = this.head.next;
+        return val;
     }
 }
 
