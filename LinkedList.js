@@ -8,4 +8,8 @@ class LinkedList {
     addFirst(v) {
         this.head = node(v, this.head);
     }
+
+    deleteFirst() {
+        this.head = this.head.next;
+    }
 }
