@@ -10,6 +10,7 @@ class LinkedList {
     }
 
     deleteFirst() {
+        if (this.head === null) return;
         this.head = this.head.next;
     }
 }
