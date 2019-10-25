@@ -1,31 +1,36 @@
 const LinkedList = require('../LinkedList');
 
-const ll = new LinkedList();
-ll.addFirst(1);
-console.log(ll);
-ll.addFirst(2);
-console.log(ll);
-
-ll.deleteFirst()
-ll.addFirst(3);
-console.log(ll);
-ll.deleteFirst();
-console.log(ll);
-ll.deleteFirst();
-ll.deleteFirst();
-console.log(ll);
-
 const l1 = new LinkedList();
+l1.addFirst(1);
+console.log(l1);
+l1.addFirst(2);
+console.log(l1);
+
+l1.deleteFirst()
+l1.addFirst(3);
+l1.addFirst(4);
+console.log(l1);
+l1.deleteFirst();
+console.log(l1);
+
+let first = l1.deleteFirst();
+console.log(l1, first);
+first = l1.deleteFirst();
+console.log(l1, first);
+console.log(l1, l1.deleteFirst())
+
+
+const l2 = new LinkedList();
 let i = 10;
 while (++i < 100) {
-    l1.addFirst(i);
+    l2.addFirst(i);
 }
 
-console.log(l1);
+console.log(l2);
 
 let j = 0;
 while (++j < 100) {
-    l1.deleteFirst();
+    l2.deleteFirst();
 }
 
-console.log(l1);
+console.log(l2);

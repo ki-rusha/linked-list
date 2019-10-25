@@ -11,7 +11,9 @@ class LinkedList {
 
     deleteFirst() {
         if (this.head === null) return;
+        const { val } = this.head; // const val = this.head.val
         this.head = this.head.next;
+        return val;
     }
 }
 
