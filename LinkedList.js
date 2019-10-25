@@ -13,3 +13,5 @@ class LinkedList {
         this.head = this.head.next;
     }
 }
+
+module.exports = LinkedList;
