@@ -15,6 +15,20 @@ class LinkedList {
         this.head = this.head.next;
         return val;
     }
+
+
+    getLength() {
+        let tmp = this.head;
+        let length = 0;
+
+        while(tmp !== null) {
+            tmp = tmp.next;
+            length++;
+        }
+
+        return length;
+    }
 }
+
 
 module.exports = LinkedList;
