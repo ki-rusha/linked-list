@@ -34,3 +34,15 @@ while (++j < 100) {
 }
 
 console.log(l2);
+
+const l3 = new LinkedList();
+
+console.log(l3.getLength());
+l3.addFirst(3);
+console.log(l3.getLength(l3.head));
+l3.addFirst(4);
+console.log(l3.getLength(l3.head));
+l3.addFirst(9);
+console.log(l3.getLength(l3.head));
+l3.deleteFirst();
+console.log(l3.getLength(l3.head));
