@@ -3,19 +3,20 @@ const LinkedList = require('../LinkedList');
 
 describe('LinkedList', () => {
     describe('#addFirst()', () => {
-        const l1 = new LinkedList();
-
         it('should add the first node with value 1', () => {
-            l1.addFirst(1);
-            assert.equal(l1.head.val, 1);
-            assert.equal(l1.head.next, null);
+            const l = new LinkedList();
+            l.addFirst(1);
+            assert.equal(l.head.val, 1);
+            assert.equal(l.head.next, null);
         });
 
         it('should add the second node with value 2 to the head', () => {
-            const node1 = l1.head;
-            l1.addFirst(2);
-            assert.equal(l1.head.val, 2);
-            assert.equal(l1.head.next, node1);
+            const l = new LinkedList();
+            l.addFirst(1);
+            const first = l.head;
+            l.addFirst(2);
+            assert.equal(l.head.val, 2);
+            assert.equal(l.head.next, first);
         });
     })
 
@@ -46,6 +47,35 @@ describe('LinkedList', () => {
             l.addFirst(2);
             assert.equal(l.deleteFirst(), 2);
             assert.equal(l.deleteFirst(), 1);
+        })
+    })
+
+    describe('#getLength', () => {
+        it('should return 0 for an empty list', () => {
+            const l = new LinkedList();
+            assert.equal(l.getLength(), 0);
+        });
+
+        it('should return 1 for one item list', () => {
+            const l = new LinkedList();
+            l.addFirst(1);
+            assert.equal(l.getLength(), 1);
+        })
+
+        it('should return 13 and them 0', () => {
+            const l = new LinkedList();
+
+            let i = 0;
+            while(i++ < 13) {
+                l.addFirst(1);
+            }
+            assert.equal(l.getLength(), 13);
+
+            let j = 0;
+            while(j++ < 15) {
+                l.deleteFirst();
+            }
+            assert.equal(l.getLength(), 0);
         })
     })
 })
