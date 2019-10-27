@@ -78,4 +78,21 @@ describe('LinkedList', () => {
             assert.equal(l.getLength(), 0);
         })
     })
+
+    describe('#addLast()', () => {
+        it('should add a node with value 13', () => {
+            const l = new LinkedList();
+            l.addLast(13);
+            assert.equal(l.getLength(), 1);
+            assert.equal(l.deleteFirst(), 13);
+        });
+
+        it('should add the second value 42 to the tail', () => {
+            const l = new LinkedList();
+            l.addLast(13);
+            l.addLast(42);
+            assert.equal(l.deleteFirst(), 13);
+            assert.equal(l.deleteFirst(), 42);
+        });
+    });
 })

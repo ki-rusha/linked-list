@@ -9,6 +9,18 @@ class LinkedList {
         this.head = node(v, this.head);
     }
 
+    addLast(v) {
+        if (this.head === null) {
+            return this.addFirst(v);
+        }
+
+        let last = this.head;
+        while(last.next !== null) {
+            last = last.next;
+        }
+        last.next = node(v, null);
+    }
+
     deleteFirst() {
         if (this.head === null) return;
         const { val } = this.head; // const val = this.head.val
