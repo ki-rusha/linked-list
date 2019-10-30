@@ -1,6 +1,8 @@
 const node = (val, next) => ({ val, next });
 
 class LinkedList {
+    static logSeparator = ' -> ';
+
     constructor() {
         this.head = null;
     }
@@ -40,7 +42,49 @@ class LinkedList {
 
         return length;
     }
-}
 
+    getFirst() {
+        return this.head === null
+            ? undefined
+            : this.head.val;
+    }
+
+    getLast() {
+        if (this.head === null) return undefined;
+
+        let last = this.head;
+        while(last.next !== null) {
+            last = last.next;
+        }
+        return last.val;
+    }
+
+    toString() {
+        let tmp = this.head;
+        let str = '';
+        const { logSeparator } = this.constructor;
+
+        while(tmp !== null) {
+            str += `${tmp.val}${logSeparator}`;
+            tmp = tmp.next;
+        }
+
+        return str.slice(0, -logSeparator.length);
+    }
+
+    searchByIndex(i) {
+        if (i <= 0) return undefined;
+
+        let tmp = this.head;
+        let j = 1;
+        while(j < i && tmp !== null) {
+            tmp = tmp.next;
+            j++;
+        }
+        return tmp === null
+            ? undefined
+            : tmp.val;
+    }
+}
 
 module.exports = LinkedList;

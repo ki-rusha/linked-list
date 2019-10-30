@@ -93,6 +93,93 @@ describe('LinkedList', () => {
             l.addLast(42);
             assert.equal(l.deleteFirst(), 13);
             assert.equal(l.deleteFirst(), 42);
+        })
+    })
+
+    describe('#getFirst()', () => {
+        it('should return undefined for empty list', () => {
+            const l = new LinkedList();
+            assert.equal(l.getFirst(), undefined);
         });
-    });
+
+        it('should return 9', () => {
+            const l = new LinkedList();
+            l.addFirst(13);
+            l.addFirst(9);
+            assert.equal(l.getFirst(), 9);
+        });
+
+        it('should not mutate the list', () => {
+            const l = new LinkedList();
+            l.addFirst(13);
+            l.addFirst(9);
+            assert.equal(l.getFirst(), 9);
+            assert.equal(l.getLength(), 2);
+            assert.equal(l.getFirst(), 9);
+        });
+    })
+
+    describe('#getLast()', () => {
+        it('should return undefined for empty list', () => {
+            const l = new LinkedList();
+            assert.equal(l.getLast(), undefined);
+        });
+
+        it('should return 13', () => {
+            const l = new LinkedList();
+            l.addFirst(13);
+            l.addFirst(9);
+            assert.equal(l.getLast(), 13);
+        });
+
+        it('should not mutate the list', () => {
+            const l = new LinkedList();
+            l.addFirst(13);
+            l.addFirst(9);
+            assert.equal(l.getLast(), 13);
+            assert.equal(l.getLast(), 13);
+            assert.equal(l.getLength(), 2);
+        });
+    })
+
+    describe('#toString', () => {
+        it('should join list values to string', () => {
+            const l = new LinkedList();
+            const values = [1, 2, 3, 4];
+            values.forEach(v => l.addLast(v));
+
+            assert.equal(
+                l.toString(),
+                values.join(LinkedList.logSeparator),
+            );
+        })
+    })
+
+    describe('#searchByIndex', () => {
+        it('should return 2', () => {
+            const l = new LinkedList();
+            l.addFirst(4);
+            l.addFirst(3);
+            l.addFirst(2);
+            l.addFirst(1);
+            assert.equal(l.searchByIndex(2), 2);
+        })
+
+        it('should return undefined if list is empty', () => {
+            const l = new LinkedList();
+            assert.equal(l.searchByIndex(2), undefined);
+        })
+
+        it('should return undefined when the index is out of list range', () => {
+            const l = new LinkedList();
+            l.addFirst(4);
+            l.addFirst(3);
+            l.addFirst(2);
+            l.addFirst(1);
+            assert.equal(l.searchByIndex(-7), undefined);
+            assert.equal(l.searchByIndex(0), undefined);
+            assert.equal(l.searchByIndex(5), undefined);
+            assert.equal(l.searchByIndex(10), undefined);
+        })
+    })
 })
