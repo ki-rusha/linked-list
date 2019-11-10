@@ -30,7 +30,6 @@ class LinkedList {
         return val;
     }
 
-
     getLength() {
         let tmp = this.head;
         let length = 0;
@@ -85,6 +84,60 @@ class LinkedList {
             ? undefined
             : tmp.val;
     }
-}
 
+    forEach(f) {
+        let tmp = this.head;
+        let i = 0;
+
+        while (tmp !== null) {
+            f(tmp.val, i, this);
+            tmp = tmp.next;
+            i += 1;
+        }
+    }
+
+    reduce(f, initialValue) {
+        let tmp = this.head;
+        let i = 0;
+        let acc = initialValue;
+
+        while (tmp !== null) {
+            acc = f(acc, tmp.val, i, this);
+            tmp = tmp.next;
+            i += 1;
+        }
+
+        return acc;
+    }
+
+    map(f) {
+        const l = new LinkedList();
+        let tmp = this.head;
+
+        while (tmp !== null) {
+            l.addFirst(f(tmp.val));
+            tmp = tmp.next;
+        }
+
+        return l.reverse();
+    }
+
+    reverse() {
+        const l = new LinkedList();
+        let tmp = this.head;
+
+        while (tmp !== null) {
+            l.addFirst(tmp.val);
+            tmp = tmp.next;
+        }
+
+        return l;
+    }
+
+    reverse() {
+        const l = new LinkedList();
+        this.forEach(val => l.addFirst(val));
+        return l;
+    }
+}
 module.exports = LinkedList;
