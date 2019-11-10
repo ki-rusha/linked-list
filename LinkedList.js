@@ -124,18 +124,6 @@ class LinkedList {
 
     reverse() {
         const l = new LinkedList();
-        let tmp = this.head;
-
-        while (tmp !== null) {
-            l.addFirst(tmp.val);
-            tmp = tmp.next;
-        }
-
-        return l;
-    }
-
-    reverse() {
-        const l = new LinkedList();
         this.forEach(val => l.addFirst(val));
         return l;
     }
