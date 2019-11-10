@@ -140,4 +140,5 @@ class LinkedList {
         return l;
     }
 }
+
 module.exports = LinkedList;
