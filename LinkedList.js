@@ -31,15 +31,7 @@ class LinkedList {
     }
 
     getLength() {
-        let tmp = this.head;
-        let length = 0;
-
-        while(tmp !== null) {
-            tmp = tmp.next;
-            length++;
-        }
-
-        return length;
+        return this.reduce(acc => acc += 1, 0);
     }
 
     getFirst() {
@@ -49,13 +41,7 @@ class LinkedList {
     }
 
     getLast() {
-        if (this.head === null) return undefined;
-
-        let last = this.head;
-        while(last.next !== null) {
-            last = last.next;
-        }
-        return last.val;
+        return this.reduce((acc, last) => last, undefined);
     }
 
     toString() {
