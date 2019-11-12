@@ -41,6 +41,7 @@ class LinkedList {
     }
 
     getLast() {
+        // TODO: add find method and rewrite?
         return this.reduce((acc, last) => last, undefined);
     }
 
